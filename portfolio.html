@@ -1,0 +1,3198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madeeha Talib | IT Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Modern Color Palette */
+        :root {
+            --dark-blue: #0a192f;
+            --navy: #112240;
+            --light-navy: #233554;
+            --lightest-navy: #2a3b5a;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --accent: #64ffda;
+            --accent-dark: #52d1ac;
+            --pink: #f57dff;
+            --purple: #7c4dff;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-blue);
+            color: var(--light-slate);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--lightest-slate);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 12px;
+            color: var(--slate);
+            font-weight: 200;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 70%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 10px auto 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark-blue);
+            border-color: var(--accent);
+        }
+
+        .btn-primary::before {
+            background: var(--accent-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--pink);
+            border-color: var(--pink);
+        }
+
+        .btn-secondary::before {
+            background: var(--pink);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--lightest-slate);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* Hero Section Update */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .hero-bg canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+            border: 3px solid var(--accent);
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-text {
+            max-width: 800px;
+        }
+
+        .hero-intro {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .wave-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            animation: wave 2s infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
+            20%, 40%, 60%, 80% { transform: rotate(10deg); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--lightest-slate);
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero-highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px 20px;
+            background: rgba(17, 34, 64, 0.5);
+            border-radius: 10px;
+            min-width: 120px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--light-slate);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* About Section Update */
+        .about {
+            background: rgba(17, 34, 64, 0.3);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-text {
+            position: relative;
+        }
+
+        .about-text h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .about-text h4 {
+            color: var(--lightest-slate);
+            margin: 30px 0 20px 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .project-highlight {
+            background: rgba(35, 53, 84, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 3px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .project-highlight:hover {
+            transform: translateX(5px);
+        }
+        
+        .project-highlight h5 i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        .project-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .project-tech {
+            background: rgba(100, 255, 218, 0.1);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .skill-item-about {
+            background: rgba(35, 53, 84, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-item-about:hover {
+            transform: translateY(-5px);
+            border: 1px solid var(--accent);
+            background: rgba(100, 255, 218, 0.1);
+        }
+        
+        .skill-item-about i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .skill-item-about span {
+            font-size: 0.9rem;
+            color: var(--lightest-slate);
+            font-weight: 500;
+        }
+        
+        .about-cta {
+            margin-top: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Or for even better responsive height, use this approach: */
+        .about-visual {
+            width: 100%;
+            /* Remove fixed height entirely */
+            background: linear-gradient(135deg, var(--navy), var(--light-navy));
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            padding: 5px; /* Match the spacing of the pseudo-element */
+        }
+
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, var(--accent), transparent 30%);
+            animation: rotate 8s linear infinite;
+        }
+
+        .about-visual-content {
+            position: relative; /* Change from absolute */
+            background: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            z-index: 1;
+            /* Height will now be determined by content */
+        }
+
+        .about-visual-content i {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 9px;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 13px 0;
+        }
+        
+        .expertise-item {
+            background: rgba(35, 53, 84, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            border: 1px solid var(--accent);
+        }
+        
+        .expertise-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .expertise-item span {
+            font-size: 0.85rem;
+            color: var(--lightest-slate);
+        }
+        /* Skills Section */
+        .skills {
+            position: relative;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(17, 34, 64, 0.5);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-category:hover::before {
+            left: 100%;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+        }
+
+        .skill-category h3 i {
+            margin-right: 12px;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: rgba(35, 53, 84, 0.5);
+            padding: 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(35, 53, 84, 0.9), rgba(100, 255, 218, 0.1));
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .skill-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: rgba(17, 34, 64, 0.3);
+            position: relative;
+        }
+
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--pink), transparent);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: rgba(17, 34, 64, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-info h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .project-tag {
+            background: rgba(100, 255, 218, 0.1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .team-members {
+            margin: 12px 0;
+            font-size: 0.85rem;
+            color: var(--light-slate);
+        }
+
+        .team-members i {
+            color: var(--accent);
+            margin-right: 5px;
+        }
+
+        .project-btns {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .project-btns .btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 0.85rem;
+        }
+
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .cert-card {
+            background: rgba(17, 34, 64, 0.5);
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cert-card:hover::before {
+            left: 100%;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+
+        .cert-badge {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover .cert-badge {
+            background: var(--accent);
+            color: var(--dark-blue);
+            transform: scale(1.1);
+        }
+
+        .cert-image-btn {
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: transparent;
+            color: var(--pink);
+            border: 1px solid var(--pink);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            min-width: 140px;
+            text-decoration: none;
+        }
+
+        .cert-image-btn:hover {
+            background: var(--pink);
+            color: var(--dark-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Internship specific styles */
+        .internship-duration {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin: 5px 0 10px 0;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--purple), transparent);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            background: rgba(17, 34, 64, 0.5);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--accent);
+            color: var(--dark-blue);
+            transform: scale(1.1);
+        }
+
+        .contact-form {
+            background: rgba(17, 34, 64, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: rgba(35, 53, 84, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 5px;
+            color: var(--lightest-slate);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(17, 34, 64, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lightest-slate);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--dark-blue);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 25, 47, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        /* Case Study Popup Styles */
+        .case-study-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.98);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .case-study-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .case-study-popup {
+            background: var(--navy);
+            border-radius: 15px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            position: relative;
+            border: 2px solid var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-popup-overlay.active .case-study-popup {
+            transform: scale(1);
+        }
+
+        .case-study-popup-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 34, 64, 0.8);
+            flex-shrink: 0;
+        }
+
+        .case-study-popup-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--lightest-slate);
+        }
+
+        .case-study-popup-close {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-popup-close:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .case-study-popup-body {
+            padding: 30px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .case-study-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .case-study-section {
+            margin-bottom: 40px;
+        }
+
+        .case-study-section h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .case-study-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .popup-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .popup-tech-item {
+            background: rgba(100, 255, 218, 0.1);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .popup-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .popup-team-member {
+            background: rgba(35, 53, 84, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .popup-team-member:hover {
+            transform: translateY(-3px);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        .popup-team-member h5 {
+            margin: 10px 0 5px 0;
+            color: var(--lightest-slate);
+            font-size: 0.9rem;
+        }
+
+        .popup-team-member p {
+            font-size: 0.8rem;
+            color: var(--slate);
+            margin: 0;
+        }
+
+        .popup-feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .popup-feature-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .popup-feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .popup-project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .popup-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .popup-meta-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .popup-meta-item span {
+            font-size: 0.9rem;
+        }
+
+        /* Certificate Popup Styles */
+        .cert-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cert-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cert-popup {
+            background: var(--navy);
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            position: relative;
+            border: 2px solid var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .cert-popup-overlay.active .cert-popup {
+            transform: scale(1);
+        }
+
+        .cert-popup-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 34, 64, 0.8);
+        }
+
+        .cert-popup-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--lightest-slate);
+        }
+
+        .cert-popup-close {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .cert-popup-close:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .cert-popup-body {
+            padding: 0;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .cert-popup-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0 0 13px 13px;
+        }
+
+        .cert-popup-loading {
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--accent);
+        }
+
+        .cert-popup-loading i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes floatWord {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.1;
+            }
+            25% {
+                transform: translate(calc(var(--x-move-1)), calc(var(--y-move-1))) rotate(90deg);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(calc(var(--x-move-2)), calc(var(--y-move-2))) rotate(180deg);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translate(calc(var(--x-move-3)), calc(var(--y-move-3))) rotate(270deg);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+                opacity: 0.1;
+            }
+        }
+
+        /* Word Wallpaper Styles */
+        .floating-word {
+            position: absolute;
+            color: rgba(100, 255, 218, 0.15);
+            font-size: 1rem;
+            font-weight: 600;
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+            transition: opacity 0.5s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-study-popup {
+                max-width: 95%;
+            }
+            
+            .popup-team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 25, 47, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 40px;
+                transition: right 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-btns {
+                flex-direction: column;
+            }
+
+            .profile-container {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .case-study-popup-header {
+                padding: 15px 20px;
+            }
+            
+            .case-study-popup-body {
+                padding: 20px;
+            }
+            
+            .popup-team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .popup-project-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .quick-stats {
+                gap: 15px;
+            }
+
+            .stat-item {
+                min-width: 100px;
+                padding: 12px 15px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-tagline {
+                font-size: 0.9rem;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cert-image-btn {
+                min-width: 130px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .case-study-popup-header h3 {
+                font-size: 1.2rem;
+            }
+            
+            .stat-item {
+                min-width: 80px;
+                padding: 10px 12px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">M<span>T</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <canvas id="backgroundCanvas"></canvas>
+            <div id="wordWallpaper"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="profile-container">
+                    <img src="profile-photo.jpeg" alt="Madeeha Talib" class="profile-pic" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'">
+                </div>
+                
+                <div class="hero-intro">
+                    <div class="wave-icon">👋</div>
+                    <h1>Hi, I'm <span class="hero-highlight">Madeeha Talib</span></h1>
+                </div>
+                
+                <div class="hero-tagline">Full-Stack Developer | Network Engineer | Cybersecurity & QA Enthusiast </div>
+                <div class="hero-tagline"> UI/UX Designer | Software Developer | Data Analyst </div>
+                
+                <div class="hero-text">
+                    <p>A passionate IT professional who transforms complex problems into elegant digital solutions. I bridge the gap between <span class="hero-highlight">cutting-edge technology</span> and <span class="hero-highlight">intuitive user experiences</span>, creating systems that are secure, scalable, and human-centered.</p>
+                    
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">6+</div>
+                            <div class="stat-label">Major Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7+</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">93%</div>
+                            <div class="stat-label">Accuracy Rate</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-primary">Explore My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About My Journey</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>I'm an Information Technology student at Bahria University Karachi Campus with a unique passion for creating solutions that combine <span class="hero-highlight">technical excellence</span> with <span class="hero-highlight">creative design thinking</span>. My journey is defined by exploring diverse technology domains and mastering the art of building systems that genuinely make a difference.</p>
+                    <div class="project-highlight">
+                        <h5><i class="fas fa-shield-alt"></i> Safe Click - Cybersecurity Innovation</h5>
+                            <p>Developed a hybrid phishing detection system achieving <span class="hero-highlight">93% accuracy</span> using six deep learning models. This final year project demonstrates my expertise in building secure, real-time threat detection systems.</p>
+                            <div class="project-tech-tags">
+                                <span class="project-tech">Python</span>
+                                <span class="project-tech">TensorFlow</span>
+                                <span class="project-tech">JavaScript</span>
+                                <span class="project-tech">Cybersecurity</span>
+                            </div>
+                    </div>
+                    
+                    <div class="about-cta">
+                        <a href="MADEEHA_TALIB_RESUME.pdf" class="btn"><i class="fas fa-download"></i> Download Resume</a>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <div class="about-visual">
+                        <div class="about-visual-content">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>Multi-Domain Expertise</h3>
+                            <div class="expertise-grid">
+                                <div class="expertise-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>Development</span>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security</span>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="fas fa-palette"></i>
+                                    <span>Design</span>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>AI/ML</span>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>Data</span>
+                                </div>
+                                <div class="expertise-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>Management</span>
+                                </div>
+                            </div>
+                            <p class="visual-text">Building cohesive solutions across technology domains with precision and creativity.</p>
+                            <div style="padding: 5px; background: rgba(100, 255, 218, 0.1); border-radius: 8px;">
+                                <p style="font-size: 0.9rem; margin: 0; color: var(--accent);">
+                                    <i class="fas fa-quote-left"></i> Technology should work brilliantly AND make a difference
+                                    <i class="fas fa-quote-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills & Expertise</h2>
+            </div>
+            <div class="skills-container">
+                <!-- Programming Languages -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-c"></i>
+                            <span class="skill-name">C</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-copyright"></i>
+                            <span class="skill-name">C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-java"></i>
+                            <span class="skill-name">Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-js-square"></i>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-html5"></i>
+                            <span class="skill-name">HTML</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-css3-alt"></i>
+                            <span class="skill-name">CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-php"></i>
+                            <span class="skill-name">PHP</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-react"></i>
+                            <span class="skill-name">React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-database"></i>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-python"></i>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-node-js"></i>
+                            <span class="skill-name">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI/ML & Data Science/Analytics -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-brain"></i> AI/ML & Data Science</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-robot"></i>
+                            <span class="skill-name">Machine Learning</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-project-diagram"></i>
+                            <span class="skill-name">Deep Learning</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-brain"></i>
+                            <span class="skill-name">TensorFlow</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-robot"></i>
+                            <span class="skill-name">Scikit-learn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-table"></i>
+                            <span class="skill-name">Pandas</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-calculator"></i>
+                            <span class="skill-name">NumPy</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-chart-bar"></i>
+                            <span class="skill-name">Data Visualization</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-comment-alt"></i>
+                            <span class="skill-name">Prompt Engineering</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-chart-line"></i>
+                            <span class="skill-name">Power BI</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-shield-alt"></i>
+                            <span class="skill-name">Protégé</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cybersecurity & Networking -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Networking</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-network-wired"></i>
+                            <span class="skill-name">Networking</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-user-secret"></i>
+                            <span class="skill-name">Ethical Hacking</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-project-diagram"></i>
+                            <span class="skill-name">Network Design</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-search"></i>
+                            <span class="skill-name">Wireshark</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-linux"></i>
+                            <span class="skill-name">Kali Linux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-search"></i>
+                            <span class="skill-name">Nmap</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-globe"></i>
+                            <span class="skill-name">Web Scraping</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-bug"></i>
+                            <span class="skill-name">Burp Suite</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-terminal"></i>
+                            <span class="skill-name">Metasploit</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Development Tools -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-code"></i>
+                            <span class="skill-name">VS Code</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-code"></i>
+                            <span class="skill-name">Dev C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-network-wired"></i>
+                            <span class="skill-name">Cisco Packet Tracer</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-code"></i>
+                            <span class="skill-name">NetBeans</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-android"></i>
+                            <span class="skill-name">Android Studio</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-cloud"></i>
+                            <span class="skill-name">Google Colab</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-git-alt"></i>
+                            <span class="skill-name">Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-docker"></i>
+                            <span class="skill-name">Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-jira"></i>
+                            <span class="skill-name">Jira</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-npm"></i>
+                            <span class="skill-name">NPM</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-server"></i>
+                            <span class="skill-name">VMWare Workstation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-database"></i>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-database"></i>
+                            <span class="skill-name">MySQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-database"></i>
+                            <span class="skill-name">MongoDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-database"></i>
+                            <span class="skill-name">SQL Server</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-database"></i>
+                            <span class="skill-name">Oracle</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-database"></i>
+                            <span class="skill-name">MS Access</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quality Assurance Tools -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-vial"></i> Quality Assurance</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-clipboard-check"></i>
+                            <span class="skill-name">Test Case Writing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-robot"></i>
+                            <span class="skill-name">Automation Testing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-book"></i>
+                            <span class="skill-name">Jupyter</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Management Tools -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tasks"></i> Project Management</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-tasks"></i>
+                            <span class="skill-name">Odoo</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-jira"></i>
+                            <span class="skill-name">Jira</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-chart-gantt"></i>
+                            <span class="skill-name">MS Project</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UI/UX & Design Tools -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-palette"></i> UI/UX & Design</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-figma"></i>
+                            <span class="skill-name">Figma</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-palette"></i>
+                            <span class="skill-name">Canva</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-pencil-ruler"></i>
+                            <span class="skill-name">UI/UX Design</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-object-group"></i>
+                            <span class="skill-name">Prototyping</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-eye"></i>
+                            <span class="skill-name">Looka</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Tools & Platforms -->
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-laptop"></i> Other Tools & Platforms</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-file-excel"></i>
+                            <span class="skill-name">MS Office</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-ubuntu"></i>
+                            <span class="skill-name">Ubuntu OS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fas fa-cloud"></i>
+                            <span class="skill-name">Google Cloud Platform</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="skill-icon fab fa-linux"></i>
+                            <span class="skill-name">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Safe Click -->
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="Safe-Click.jpg" alt="Safe_Click Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Safe Click - Phishing URL Detection</h3>
+                        <p>A hybrid solution combining web detection platform and browser extension for real-time phishing protection using six deep learning models.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">Cybersecurity</div>
+                            <div class="project-tag">Machine Learning</div>
+                            <div class="project-tag">Python</div>
+                            <div class="project-tag">TensorFlow</div>
+                            <div class="project-tag">JavaScript</div>
+                        </div>
+                        <div class="team-members">
+                            <i class="fas fa-users"></i> Team: Madeeha Talib, Arjan Kumar, Ayesha Channa
+                        </div>
+                        <div class="project-btns">
+                            <button class="btn btn-primary view-case-study" data-project="safe-click">View Case Study</button>
+                            <a href="https://github.com/Madeeha-Talib/safe-click-website" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Dyslexia Aid -->
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="Dyslexia-Aid-Software.png" alt="Dyslexia Aid Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Dyslexia Aid Software</h3>
+                        <p>Educational software for dyslexic children with alphabet tracing, quizzes, progress monitoring, and assistive technologies.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">Java</div>
+                            <div class="project-tag">Oracle SQL</div>
+                            <div class="project-tag">NetBeans</div>
+                            <div class="project-tag">Education</div>
+                            <div class="project-tag">Accessibility</div>
+                        </div>
+                        <div class="team-members">
+                            <i class="fas fa-users"></i> Team: Madeeha Talib, Sara Tariq, Minahil Shaikh, Rida Alam, Irma Kaleem, Asim Khan, Wajahat Rasool
+                        </div>
+                        <div class="project-btns">
+                            <button class="btn btn-primary view-case-study" data-project="dyslexia-aid">View Case Study</button>
+                            <a href="Dyslexia-Aid-Software.pdf" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Road Rangers -->
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="Road-Rangers-Cab-Services.png" alt="Road Rangers Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Road Rangers Cab Service</h3>
+                        <p>DBMS project for cab service management with passenger and captain interfaces, fare calculation, and ride tracking.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">Java</div>
+                            <div class="project-tag">Oracle SQL</div>
+                            <div class="project-tag">NetBeans</div>
+                            <div class="project-tag">Database</div>
+                            <div class="project-tag">GUI</div>
+                        </div>
+                        <div class="team-members">
+                            <i class="fas fa-users"></i> Team: Madeeha Talib, Sara Tariq, Irma Kaleem
+                        </div>
+                        <div class="project-btns">
+                            <button class="btn btn-primary view-case-study" data-project="road-rangers">View Case Study</button>
+                            <a href="Road-Rangers-Report.docx" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Smoke Detection -->
+                <div class="project-card fade-in">
+                    <div class="project-img" style="height: unset;">
+                        <img src="IOT-Fire-Prevention-System.png" alt="Fire Prevention System">
+                    </div>
+                    <div class="project-info">
+                        <h3>IoT Fire Prevention System</h3>
+                        <p>IoT-based solution for early smoke detection and automated fire prevention using sensors and mobile notifications.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">IoT</div>
+                            <div class="project-tag">Cisco PT</div>
+                            <div class="project-tag">Networking</div>
+                            <div class="project-tag">Security</div>
+                            <div class="project-tag">Hardware</div>
+                        </div>
+                        <div class="team-members">
+                            <i class="fas fa-users"></i> Team: Madeeha Talib, Irma Kaleem
+                        </div>
+                        <div class="project-btns">
+                            <button class="btn btn-primary view-case-study" data-project="smoke-detection">View Case Study</button>
+                            <a href="IOT-Fire-Prevention-Report.pdf" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Daewoo Bus System -->
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Daewoo Bus System">
+                    </div>
+                    <div class="project-info">
+                        <h3>Daewoo Bus Services System</h3>
+                        <p>Complex computing solution for bus seat booking, route management, and cargo optimization using data structures.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">C++</div>
+                            <div class="project-tag">Data Structures</div>
+                            <div class="project-tag">Algorithms</div>
+                            <div class="project-tag">Optimization</div>
+                            <div class="project-tag">Bubble Sort</div>
+                        </div>
+                        <div class="team-members">
+                            <i class="fas fa-users"></i> Individual Project: Madeeha Talib
+                        </div>
+                        <div class="project-btns">
+                            <button class="btn btn-primary view-case-study" data-project="daewoo-bus">View Case Study</button>
+                            <a href="Daewoo-Bus-Services-Report.pdf" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6: Library Management -->
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Library Management">
+                    </div>
+                    <div class="project-info">
+                        <h3>Library Management System</h3>
+                        <p>Database system for managing book records, student information, and library operations with automated tracking.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">Microsoft Access</div>
+                            <div class="project-tag">SQL</div>
+                            <div class="project-tag">Database</div>
+                            <div class="project-tag">Management</div>
+                            <div class="project-tag">Automation</div>
+                        </div>
+                        <div class="team-members">
+                            <i class="fas fa-users"></i> Team: Madeeha Talib, Hamza Naeem, Syed Hamza Hussain Shah
+                        </div>
+                        <div class="project-btns">
+                            <button class="btn btn-primary view-case-study" data-project="library-management">View Case Study</button>
+                            <a href="Library-Management-System-Report.docx" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certifications-grid">
+                <!-- Internship Certificate -->
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Network Engineer Intern</h3>
+                    <p>Great Learning Academy</p>
+                    <p class="internship-duration">Internship Certificate</p>
+                    <button class="cert-image-btn" data-cert="network-engineer-intern">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                </div>
+
+                <!-- Certification 1 -->
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Ethical Hacking</h3>
+                    <p>Great Learning Academy</p>
+                    <button class="cert-image-btn" data-cert="ethical-hacking">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                </div>
+                
+                <!-- Certification 2 -->
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UX/UI Designing</h3>
+                    <p>Great Learning Academy</p>
+                    <button class="cert-image-btn" data-cert="ui-ux">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                </div>
+                
+                <!-- Certification 3 -->
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Project Management</h3>
+                    <p>Great Learning Academy</p>
+                    <button class="cert-image-btn" data-cert="project-management">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                </div>
+                
+                <!-- Certification 4 -->
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Intro to MERN Stack</h3>
+                    <p>BUCIS</p>
+                    <button class="cert-image-btn" data-cert="mern">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                </div>
+                
+                <!-- Certification 5 -->
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Generative AI & Prompt Engineering</h3>
+                    <p>ACM & SSUIT</p>
+                    <button class="cert-image-btn" data-cert="ai">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                </div>
+                
+                <!-- Certification 6 -->
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Circle Tech Karo</p>
+                    <button class="cert-image-btn" data-cert="digital-marketing">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>madihatalib92@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+92 3325202177 or +92 3161027239</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Bin Qasim Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/madecha-t-76a05227a/" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Madeeha-Talib" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Madeeha Talib. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Case Study Popup -->
+    <div class="case-study-popup-overlay">
+        <div class="case-study-popup">
+            <div class="case-study-popup-header">
+                <h3 id="caseStudyTitle">Project Case Study</h3>
+                <button class="case-study-popup-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="case-study-popup-body">
+                <div class="case-study-content" id="caseStudyContent">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Popup -->
+    <div class="cert-popup-overlay">
+        <div class="cert-popup">
+            <div class="cert-popup-header">
+                <h3 id="certPopupTitle">Certificate</h3>
+                <button class="cert-popup-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cert-popup-body">
+                <div class="cert-popup-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading certificate...</p>
+                </div>
+                <img class="cert-popup-image" src="" alt="Certificate" style="display: none;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Project Data - All case study information
+        const projectsData = {
+            'safe-click': {
+                title: 'Safe Click - Hybrid Phishing URL Detection',
+                description: 'A comprehensive cybersecurity solution combining web platform and browser extension for real-time phishing protection using six deep learning models.',
+                timeline: 'Fall 2025',
+                teamSize: '3 Members',
+                role: 'Full Stack Developer',
+                projectType: 'Final Year Project',
+                techStack: [
+                    { icon: 'fab fa-python', name: 'Python' },
+                    { icon: 'fas fa-brain', name: 'TensorFlow/Keras' },
+                    { icon: 'fab fa-js', name: 'JavaScript' },
+                    { icon: 'fab fa-php', name: 'PHP' },
+                    { icon: 'fas fa-database', name: 'MySQL' },
+                    { icon: 'fab fa-html5', name: 'HTML/CSS' },
+                    { icon: 'fab fa-git', name: 'Git' },
+                    { icon: 'fas fa-code', name: 'VS Code' }
+                ],
+                teamMembers: [
+                    { name: 'Madeeha Talib', id: '02-235221-010', role: 'Full Stack & ML Development' },
+                    { name: 'Arjan Kumar', id: '', role: 'Backend & Model Training' },
+                    { name: 'Ayesha Channa', id: '', role: 'Frontend & Extension' }
+                ],
+                features: [
+                    'Real-time Detection: Browser extension analyzes URLs as users browse',
+                    'On-demand Scanning: Web platform for manual URL checks',
+                    'Multi-model Ensemble: Six DL models for robust classification',
+                    'Three-Layer Detection: Feature analysis, content examination, and DL classification',
+                    'User History: Track all scanned URLs with results',
+                    'Dashboard Analytics: Statistics on detection rates and threats',
+                    'Cross-platform: Compatible with Chrome and Chromium browsers'
+                ],
+                results: [
+                    'Dataset: 599,984 URLs (balanced across categories)',
+                    'Accuracy: Up to 93% with BiLSTM and GRU models',
+                    'Precision: Maximum 92% for phishing detection',
+                    'Recall: 93% for identifying actual phishing sites',
+                    'Response Time: 1-3 seconds for web detection',
+                    'Extension Performance: 500-800ms for real-time blocking'
+                ],
+                details: [
+                    'Developed as a final year project at Bahria University',
+                    'Combines web interface and browser extension for maximum coverage',
+                    'Uses six deep learning models (LSTM, BiLSTM, RNN, GRU, Transformer, EGSO-CNN)',
+                    'Three-layer detection system for comprehensive analysis',
+                    'Trained on balanced dataset of nearly 600,000 URLs',
+                    'Achieved state-of-the-art performance in phishing detection'
+                ]
+            },
+            'dyslexia-aid': {
+                title: 'Dyslexia Aid Software',
+                description: 'Educational software for dyslexic children with alphabet tracing, quizzes, progress monitoring, and assistive technologies.',
+                timeline: '2023',
+                teamSize: '7 Members',
+                role: 'Software Developer',
+                projectType: 'Software Engineering Project',
+                techStack: [
+                    { icon: 'fab fa-java', name: 'Java' },
+                    { icon: 'fas fa-database', name: 'Oracle SQL' },
+                    { icon: 'fas fa-code', name: 'NetBeans' },
+                    { icon: 'fas fa-book', name: 'Education Tech' },
+                    { icon: 'fas fa-universal-access', name: 'Accessibility' },
+                    { icon: 'fas fa-volume-up', name: 'TTS/STT' }
+                ],
+                teamMembers: [
+                    { name: 'Madeeha Talib', id: '02-235221-010', role: 'Software Development' },
+                    { name: 'Sara Tariq', id: '', role: 'UI/UX Design' },
+                    { name: 'Minahil Shaikh', id: '', role: 'Content Development' },
+                    { name: 'Rida Alam', id: '', role: 'Testing & QA' },
+                    { name: 'Irma Kaleem', id: '', role: 'Database Design' },
+                    { name: 'Asim Khan', id: '', role: 'Backend Development' },
+                    { name: 'Wajahat Rasool', id: '', role: 'Project Management' }
+                ],
+                features: [
+                    'Alphabet Tracing: Interactive tracing with audio guidance',
+                    'Quizzes & Assessments: Multiple choice, true/false, and short answer questions',
+                    'Progress Monitoring: Tools for parents, teachers, and doctors',
+                    'Text-to-Speech: Converts written text to audible speech',
+                    'Speech-to-Text: Assists with writing tasks through voice input',
+                    'Course Structure: Organized lessons and learning paths',
+                    'User-Friendly Design: High contrast, dyslexia-friendly fonts'
+                ],
+                results: [
+                    'Comprehensive SRS documentation created',
+                    'Functional prototype with all core features',
+                    'User testing with target audience',
+                    'Positive feedback from educators and parents',
+                    'Accessibility compliance achieved'
+                ],
+                details: [
+                    'Developed as part of Software Engineering course',
+                    'Focus on accessibility and inclusive design',
+                    'Collaborative environment for multiple stakeholders',
+                    'Comprehensive progress tracking system',
+                    'Designed specifically for dyslexic learning patterns',
+                    'Integration of assistive technologies'
+                ]
+            },
+            'road-rangers': {
+                title: 'Road Rangers Cab Service',
+                description: 'DBMS project for cab service management with passenger and captain interfaces, fare calculation, and ride tracking.',
+                timeline: '2024',
+                teamSize: '3 Members',
+                role: 'Database Developer',
+                projectType: 'Database Management System Project',
+                techStack: [
+                    { icon: 'fab fa-java', name: 'Java' },
+                    { icon: 'fas fa-database', name: 'Oracle SQL Plus' },
+                    { icon: 'fas fa-code', name: 'NetBeans' },
+                    { icon: 'fas fa-car', name: 'Transportation' },
+                    { icon: 'fas fa-calculator', name: 'Fare Calculation' },
+                    { icon: 'fas fa-map-marker-alt', name: 'Ride Tracking' }
+                ],
+                teamMembers: [
+                    { name: 'Madeeha Talib', id: '02-235221-010', role: 'Database Design & Development' },
+                    { name: 'Sara Tariq', id: '', role: 'Frontend GUI Development' },
+                    { name: 'Irma Kaleem', id: '', role: 'Backend Logic & Testing' }
+                ],
+                features: [
+                    'Passenger Interface: Book rides, select options, track progress',
+                    'Captain Interface: Accept/reject rides, update status',
+                    'Fare Calculation: Based on distance and ride type',
+                    'Ride Management: Complete ride lifecycle tracking',
+                    'Analytics Dashboard: Track rides, profits, and performance',
+                    'Multiple Ride Options: Bikes, rickshaws, AC rides, premium cars',
+                    'Admin Panel: Monitor system, manage users, view reports'
+                ],
+                results: [
+                    'Complete DBMS implementation with Oracle',
+                    'Functional GUI with NetBeans platform',
+                    'Accurate fare calculation system',
+                    'Comprehensive ride tracking',
+                    'Detailed analytics and reporting'
+                ],
+                details: [
+                    'Developed as DBMS course project',
+                    'Focus on efficient data management',
+                    'Real-world cab service simulation',
+                    'Comprehensive ER diagram and schema design',
+                    'Secure user authentication system',
+                    'Scalable database architecture'
+                ]
+            },
+            'smoke-detection': {
+                title: 'IoT Fire Prevention System',
+                description: 'IoT-based solution for early smoke detection and automated fire prevention using sensors and mobile notifications.',
+                timeline: 'Spring 2023',
+                teamSize: '2 Members',
+                role: 'Network Engineer',
+                projectType: 'Data Communication & Networking Project',
+                techStack: [
+                    { icon: 'fas fa-network-wired', name: 'Cisco Packet Tracer' },
+                    { icon: 'fas fa-wifi', name: 'Wi-Fi Module' },
+                    { icon: 'fas fa-smoking', name: 'Smoke Sensors' },
+                    { icon: 'fas fa-fire-extinguisher', name: 'Fire Sprinklers' },
+                    { icon: 'fas fa-bell', name: 'Siren System' },
+                    { icon: 'fas fa-home', name: 'Home Gateway' },
+                    { icon: 'fas fa-mobile-alt', name: 'Mobile App' }
+                ],
+                teamMembers: [
+                    { name: 'Madeeha Talib', id: '02-235221-010', role: 'Network Design & Configuration' },
+                    { name: 'Irma Kaleem', id: '', role: 'IoT Integration & Testing' }
+                ],
+                features: [
+                    'Smoke Detection: Early detection using specialized sensors',
+                    'Temperature Monitoring: Real-time temperature tracking',
+                    'Automated Response: Automatic activation of sprinklers',
+                    'Mobile Alerts: Instant notifications to smartphone',
+                    'Siren Activation: Audible alerts for immediate attention',
+                    'Remote Monitoring: Control via mobile application',
+                    'Network Integration: VLANs for efficient communication'
+                ],
+                results: [
+                    'Complete network topology designed',
+                    'Successful simulation in Cisco Packet Tracer',
+                    'Real-time alert system implemented',
+                    'Automated response mechanisms tested',
+                    'Mobile integration achieved'
+                ],
+                details: [
+                    'Developed for Data Communication & Networking course',
+                    'Focus on IoT and smart home automation',
+                    'Network security considerations implemented',
+                    'Real-time monitoring capabilities',
+                    'Scalable for larger deployments',
+                    'Cost-effective solution for home safety'
+                ]
+            },
+            'daewoo-bus': {
+                title: 'Daewoo Bus Services System',
+                description: 'Complex computing solution for bus seat booking, route management, and cargo optimization using data structures.',
+                timeline: 'Spring 2023',
+                teamSize: '1 Member',
+                role: 'Solo Developer',
+                projectType: 'Data Structures & Algorithms Project',
+                techStack: [
+                    { icon: 'fas fa-copyright', name: 'C++' },
+                    { icon: 'fas fa-project-diagram', name: 'Data Structures' },
+                    { icon: 'fas fa-sort-amount-down', name: 'Algorithms' },
+                    { icon: 'fas fa-route', name: 'Route Optimization' },
+                    { icon: 'fas fa-box', name: 'Cargo Management' },
+                    { icon: 'fas fa-chair', name: 'Seat Booking' }
+                ],
+                teamMembers: [
+                    { name: 'Madeeha Talib', id: '02-235221-010', role: 'Full Development & Implementation' }
+                ],
+                features: [
+                    'Bus Search: Find buses by route, date, and availability',
+                    'Seat Booking: Real-time seat selection and reservation',
+                    'Standby Management: Priority-based standby list handling',
+                    'Route Mapping: Detailed route maps with terminals and cities',
+                    'Cargo Optimization: Profit-based cargo selection algorithm',
+                    'Admin Module: Comprehensive system management',
+                    'Efficient Algorithms: Bubble sort and selection sort implementations'
+                ],
+                results: [
+                    'Complex problem-solving implementation',
+                    'Efficient data structure utilization',
+                    'Optimized algorithms for cargo selection',
+                    'Comprehensive seat management system',
+                    'Standby list priority handling'
+                ],
+                details: [
+                    'Individual project for DSA course',
+                    'Focus on algorithm efficiency and optimization',
+                    'Real-world bus service simulation',
+                    'Complex computing problem solving',
+                    'Data structure selection based on requirements',
+                    'Time complexity analysis for all operations'
+                ]
+            },
+            'library-management': {
+                title: 'Library Management System',
+                description: 'Database system for managing book records, student information, and library operations with automated tracking.',
+                timeline: '2023',
+                teamSize: '3 Members',
+                role: 'Database Designer',
+                projectType: 'ICT Project',
+                techStack: [
+                    { icon: 'fas fa-database', name: 'Microsoft Access' },
+                    { icon: 'fas fa-code', name: 'SQL' },
+                    { icon: 'fas fa-book', name: 'Library Management' },
+                    { icon: 'fas fa-user-graduate', name: 'Student Tracking' },
+                    { icon: 'fas fa-calculator', name: 'Fine Calculation' },
+                    { icon: 'fas fa-search', name: 'Book Search' }
+                ],
+                teamMembers: [
+                    { name: 'Madeeha Talib', id: '02-235221-010', role: 'Database Design & Development' },
+                    { name: 'Hamza Naeem', id: '', role: 'System Analysis' },
+                    { name: 'Syed Hamza Hussain Shah', id: '', role: 'Documentation & Testing' }
+                ],
+                features: [
+                    'Book Management: Add, update, and track book inventory',
+                    'Student Management: Register and manage student information',
+                    'Issue/Return System: Automated book issuance and return tracking',
+                    'Fine Calculation: Automatic fine calculation for late returns',
+                    'Search Functionality: Easy search for books and students',
+                    'Report Generation: Various reports for library operations',
+                    'User-Friendly Interface: Simple and intuitive design'
+                ],
+                results: [
+                    'Complete database system implemented',
+                    'Automated fine calculation system',
+                    'Efficient book tracking mechanism',
+                    'Comprehensive reporting capabilities',
+                    'User-friendly interface design'
+                ],
+                details: [
+                    'Developed for ICT course project',
+                    'Focus on database management principles',
+                    'Real-world library operations simulation',
+                    'Automated processes to reduce manual work',
+                    'Scalable design for different library sizes',
+                    'Comprehensive data validation and integrity'
+                ]
+            }
+        };
+
+        // Certificate data mapping
+        const certificateImages = {
+            'network-engineer-intern': 'Internship-Certificate.jpg',
+            'ethical-hacking': 'Ethical-Hacking-Certification.jpg',
+            'ui-ux': 'UX-UI-Designing.jpg',
+            'project-management': 'project-management-certificate.jpg',
+            'mern': 'Mern-stack.jpeg',
+            'ai': 'Generative-AI.jpg',
+            'digital-marketing': 'digital-markiting.jpeg'
+        };
+
+        const certificateTitles = {
+            'network-engineer-intern': 'Network Engineer Internship Certificate - Great Learning Academy',
+            'ethical-hacking': 'Ethical Hacking Certificate - Great Learning Academy',
+            'ui-ux': 'UX/UI Designing Certificate - Great Learning Academy',
+            'project-management': 'Project Management Certificate - Great Learning Academy',
+            'mern': 'Intro to MERN Stack Certificate - BUCIS',
+            'ai': 'Generative AI & Prompt Engineering Certificate - ACM & SSUIT',
+            'digital-marketing': 'Digital Marketing Certificate - Circle Tech Karo'
+        };
+
+        // DOM Elements
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const caseStudyPopup = document.querySelector('.case-study-popup-overlay');
+        const caseStudyTitle = document.getElementById('caseStudyTitle');
+        const caseStudyContent = document.getElementById('caseStudyContent');
+        const caseStudyClose = document.querySelector('.case-study-popup-close');
+        const viewCaseStudyBtns = document.querySelectorAll('.view-case-study');
+        const certPopup = document.querySelector('.cert-popup-overlay');
+        const certPopupTitle = document.getElementById('certPopupTitle');
+        const certPopupImage = document.querySelector('.cert-popup-image');
+        const certPopupLoading = document.querySelector('.cert-popup-loading');
+        const certPopupClose = document.querySelector('.cert-popup-close');
+        const certButtons = document.querySelectorAll('.cert-image-btn');
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        // Mobile Navigation Toggle
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for fade elements
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 25, 47, 0.95)';
+                header.style.padding = '12px 0';
+            } else {
+                header.style.background = 'rgba(10, 25, 47, 0.95)';
+                header.style.padding = '15px 0';
+            }
+        });
+
+        // Case Study Popup Functions
+        function openCaseStudyPopup(projectId) {
+            const project = projectsData[projectId];
+            if (!project) return;
+
+            // Set title
+            caseStudyTitle.textContent = project.title;
+
+            // Generate content
+            let contentHTML = `
+                <div class="case-study-section">
+                    <h4>Project Overview</h4>
+                    <p>${project.description}</p>
+                    
+                    <div class="popup-project-meta">
+                        <div class="popup-meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span><strong>Timeline:</strong> ${project.timeline}</span>
+                        </div>
+                        <div class="popup-meta-item">
+                            <i class="fas fa-users"></i>
+                            <span><strong>Team Size:</strong> ${project.teamSize}</span>
+                        </div>
+                        <div class="popup-meta-item">
+                            <i class="fas fa-user-tie"></i>
+                            <span><strong>My Role:</strong> ${project.role}</span>
+                        </div>
+                        <div class="popup-meta-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span><strong>Project Type:</strong> ${project.projectType}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Technical Stack</h4>
+                    <div class="popup-tech-stack">
+            `;
+
+            // Add tech stack items
+            project.techStack.forEach(tech => {
+                contentHTML += `
+                    <div class="popup-tech-item">
+                        <i class="${tech.icon}"></i>
+                        <span>${tech.name}</span>
+                    </div>
+                `;
+            });
+
+            contentHTML += `
+                    </div>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Team Members</h4>
+                    <div class="popup-team-grid">
+            `;
+
+            // Add team members
+            project.teamMembers.forEach(member => {
+                contentHTML += `
+                    <div class="popup-team-member">
+                        <div style="width: 50px; height: 50px; background: rgba(100, 255, 218, 0.1); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--accent);">
+                            ${member.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <h5>${member.name}</h5>
+                        ${member.id ? `<p style="color: var(--accent); font-size: 0.7rem; margin: 2px 0;">${member.id}</p>` : ''}
+                        <p>${member.role}</p>
+                    </div>
+                `;
+            });
+
+            contentHTML += `
+                    </div>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Key Features</h4>
+                    <ul class="popup-feature-list">
+            `;
+
+            // Add features
+            project.features.forEach(feature => {
+                contentHTML += `<li>${feature}</li>`;
+            });
+
+            contentHTML += `
+                    </ul>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Results & Outcomes</h4>
+                    <ul class="popup-feature-list">
+            `;
+
+            // Add results
+            project.results.forEach(result => {
+                contentHTML += `<li>${result}</li>`;
+            });
+
+            contentHTML += `
+                    </ul>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Project Details</h4>
+                    <ul class="popup-feature-list">
+            `;
+
+            // Add details
+            project.details.forEach(detail => {
+                contentHTML += `<li>${detail}</li>`;
+            });
+
+            contentHTML += `</ul></div>`;
+
+            // Insert content
+            caseStudyContent.innerHTML = contentHTML;
+
+            // Open popup
+            caseStudyPopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCaseStudyPopup() {
+            caseStudyPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Certificate Popup Functions
+        function openCertificatePopup(certId) {
+            const certImage = certificateImages[certId];
+            const certTitle = certificateTitles[certId];
+            
+            if (!certImage) {
+                alert('Certificate image not available');
+                return;
+            }
+            
+            // Set title
+            certPopupTitle.textContent = certTitle;
+            
+            // Show loading
+            certPopupLoading.style.display = 'block';
+            certPopupImage.style.display = 'none';
+            
+            // Open popup
+            certPopup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Load image
+            const img = new Image();
+            img.onload = function() {
+                certPopupImage.src = certImage;
+                certPopupImage.alt = certTitle;
+                certPopupLoading.style.display = 'none';
+                certPopupImage.style.display = 'block';
+            };
+            
+            img.onerror = function() {
+                certPopupLoading.innerHTML = `
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Failed to load certificate image</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">File: ${certImage}</p>
+                `;
+            };
+            
+            img.src = certImage;
+        }
+
+        function closeCertificatePopup() {
+            certPopup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            certPopupImage.src = '';
+        }
+
+        // Event Listeners
+        viewCaseStudyBtns.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectId = button.getAttribute('data-project');
+                if (projectId) {
+                    openCaseStudyPopup(projectId);
+                }
+            });
+        });
+
+        caseStudyClose.addEventListener('click', closeCaseStudyPopup);
+        caseStudyPopup.addEventListener('click', (e) => {
+            if (e.target === caseStudyPopup) {
+                closeCaseStudyPopup();
+            }
+        });
+
+        certButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const certId = button.getAttribute('data-cert');
+                if (certId) {
+                    openCertificatePopup(certId);
+                }
+            });
+        });
+
+        certPopupClose.addEventListener('click', closeCertificatePopup);
+        certPopup.addEventListener('click', (e) => {
+            if (e.target === certPopup) {
+                closeCertificatePopup();
+            }
+        });
+
+        // Close popups with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (caseStudyPopup.classList.contains('active')) {
+                    closeCaseStudyPopup();
+                }
+                if (certPopup.classList.contains('active')) {
+                    closeCertificatePopup();
+                }
+            }
+        });
+
+        // Contact Form Functionality
+        function showFormMessage(message, type = 'success') {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Validate form
+            if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+                showFormMessage('Please fill in all fields.', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showFormMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            showFormMessage('Sending message...', 'loading');
+            
+            try {
+                // Simulate API call (replace with actual backend integration)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Success simulation
+                contactForm.reset();
+                showFormMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+            } catch (error) {
+                console.error('Error sending email:', error);
+                showFormMessage('Failed to send message. Please try again later or email me directly at madihatalib92@gmail.com', 'error');
+            } finally {
+                // Reset loading state
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
+        }
+        
+        contactForm.addEventListener('submit', handleFormSubmit);
+        
+        // Form input validation
+        const formInputs = contactForm.querySelectorAll('input, textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (formMessage.style.display === 'block') {
+                    formMessage.style.display = 'none';
+                }
+            });
+        });
+
+        // Background Animation
+        const canvas = document.getElementById('backgroundCanvas');
+        const ctx = canvas.getContext('2d');
+        const wordWallpaper = document.getElementById('wordWallpaper');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Words related to skills
+        const skillWords = [
+            'JavaScript', 'React', 'Java', 'Python', 'HTML', 'CSS', 
+            'UI/UX Design', 'Cybersecurity', 'Testing', 'QA', 'SQL',
+            'Figma', 'Git', 'Jira', 'Project Management', 'Networking',
+            'Android', 'IoT', 'Machine Learning', 'Deep Learning', 'Prompt Engineering'
+        ];
+        
+        // Create floating words
+        function createFloatingWords() {
+            wordWallpaper.innerHTML = '';
+            
+            for (let i = 0; i < 15; i++) {
+                const word = document.createElement('div');
+                word.className = 'floating-word';
+                word.textContent = skillWords[Math.floor(Math.random() * skillWords.length)];
+                
+                // Generate random movement values
+                const x1 = Math.random() * 100 - 50;
+                const y1 = Math.random() * 100 - 50;
+                const x2 = Math.random() * 100 - 50;
+                const y2 = Math.random() * 100 - 50;
+                const x3 = Math.random() * 100 - 50;
+                const y3 = Math.random() * 100 - 50;
+                
+                // Set CSS custom properties for animation
+                word.style.setProperty('--x-move-1', `${x1}px`);
+                word.style.setProperty('--y-move-1', `${y1}px`);
+                word.style.setProperty('--x-move-2', `${x2}px`);
+                word.style.setProperty('--y-move-2', `${y2}px`);
+                word.style.setProperty('--x-move-3', `${x3}px`);
+                word.style.setProperty('--y-move-3', `${y3}px`);
+                
+                // Random position and animation
+                word.style.left = `${Math.random() * 100}%`;
+                word.style.top = `${Math.random() * 100}%`;
+                word.style.fontSize = `${Math.random() * 0.8 + 0.6}rem`;
+                word.style.opacity = `${Math.random() * 0.3 + 0.1}`;
+                word.style.animation = `floatWord ${Math.random() * 20 + 10}s linear infinite`;
+                
+                wordWallpaper.appendChild(word);
+            }
+        }
+        
+        // Circuit nodes for background
+        const nodes = [];
+        const nodeCount = 20;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.3 - 0.15;
+                this.speedY = Math.random() * 0.3 - 0.15;
+                this.color = `rgba(100, 255, 218, ${Math.random() * 0.2 + 0.1})`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Create nodes
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push(new Node());
+        }
+        
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, 'rgba(10, 25, 47, 0.9)');
+            gradient.addColorStop(1, 'rgba(17, 34, 64, 0.7)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw nodes
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            // Draw connecting lines between nodes (circuit effect)
+            ctx.strokeStyle = 'rgba(100, 255, 218, 0.08)';
+            ctx.lineWidth = 0.8;
+            
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // Initialize animations
+        createFloatingWords();
+        animate();
+        
+        // Recreate floating words on window resize
+        window.addEventListener('resize', createFloatingWords);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate stats counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalValue = parseInt(stat.textContent);
+                let currentValue = 0;
+                const increment = finalValue / 50;
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        stat.textContent = finalValue + (stat.textContent.includes('%') ? '%' : '+');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('%') ? '%' : '+');
+                    }
+                }, 50);
+            });
+        });
+    </script>
+</body>
+</html>
