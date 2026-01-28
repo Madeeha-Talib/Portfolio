@@ -4,7 +4,7 @@
 
 ---
 
-## 📸 Portfolio Profile Picture
+## <img width="45" height="45" alt="image" src="https://github.com/user-attachments/assets/18e7991c-e951-4530-b686-0b6cd2f6939f" /> Portfolio Profile Picture
 
 Your portfolio features a professional profile photograph that introduces you as **Madeeha Talib**, an IT Professional. The profile picture is prominently displayed in the hero section of your portfolio website, creating the first visual impression for visitors. It's accompanied by a warm greeting ("👋 Hi, I'm Madeeha Talib") and professional taglines that establish your diverse expertise.
 
