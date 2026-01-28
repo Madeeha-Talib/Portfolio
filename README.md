@@ -4,7 +4,7 @@
 
 ---
 
-Your portfolio features a professional profile photograph that introduces you as **Madeeha Talib**, an IT Professional. The profile picture is prominently displayed in the hero section of your portfolio website, creating the first visual impression for visitors. It's accompanied by a warm greeting ("👋 Hi, I'm Madeeha Talib") and professional taglines that establish your diverse expertise.
+My portfolio features a professional profile photograph that introduces me as **Madeeha Talib**, an IT Professional. The profile picture is prominently displayed in the hero section of my portfolio website, creating the first visual impression for visitors. It's accompanied by a warm greeting ("👋 Hi, I'm Madeeha Talib") and professional taglines that establish my diverse expertise.
 
 **Profile Image Details:**
 - **Location:** Hero section (top of portfolio)
@@ -83,7 +83,7 @@ The portfolio begins with an impactful **Hero Section** that includes:
 
 ## 🎓 About Section
 
-This section details your professional journey:
+This section details my professional journey:
 
 **Key Highlights:**
 - Information Technology student at **Bahria University Karachi Campus**
@@ -106,7 +106,7 @@ This section details your professional journey:
 
 ## 💻 Skills & Expertise (50+ Technologies)
 
-Your portfolio organizes skills into 10 professional categories:
+My portfolio organizes skills into 10 professional categories:
 
 ### 1. **Programming Languages** (11 technologies)
 - C, C++, Java, JavaScript, HTML5, CSS3, PHP, React, SQL, Python, Node.js
@@ -206,7 +206,7 @@ Your portfolio organizes skills into 10 professional categories:
 
 ## 🏆 Certifications & Credentials
 
-Your portfolio highlights **7+ professional certifications**:
+My portfolio highlights **7+ professional certifications**:
 
 ### 1. **Network Engineer Intern**
 - **Issuer:** Great Learning Academy
@@ -458,8 +458,7 @@ This portfolio is a personal professional project. All original work is protecte
 
 ---
 
-**Visit the portfolio:** Open `portfolio.html` in your browser to explore the complete interactive experience!
+**Visit the portfolio:** Open `portfolio.html` in my browser to explore the complete interactive experience!
 
 ---
 
-*This README provides a comprehensive guide to understanding and navigating the portfolio project. For questions or updates, refer to the portfolio files or contact information in the portfolio website itself.*
