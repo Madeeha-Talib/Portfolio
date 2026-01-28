@@ -1,4 +1,4 @@
-# Portfolio - Madeeha Talib
+# <img width="40" height="40" alt="SafeClick Logo" src="C:\xampp\htdocs\Portfolio\profile-photo.jpeg" /> Portfolio - Madeeha Talib
 
 > A comprehensive digital portfolio showcasing projects, skills, and certifications in IT development, cybersecurity, and UI/UX design.
 
