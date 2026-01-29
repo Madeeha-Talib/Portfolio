@@ -2101,14 +2101,15 @@
                         </div>
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="elder-care">View Case Study</button>
-                            <a href="https://github.com/Madeeha-Talib/Elderly-Care-Home-Management-System.git" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> View Report</a>
+                            <a href="https://github.com/Madeeha-Talib/Elderly-Care-Home-Management-System.git" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> GitHub</a>
                         </div>
                         
                     </div>
                 </div>
 
 
-                <!-- Project 4: Smoke Detection -->
+                <!-- Project 5: Smoke Detection -->
                 <div class="project-card fade-in">
                     <div class="project-img" style="height: unset;">
                         <img src="IOT-Fire-Prevention-System.png" alt="Fire Prevention System">
@@ -2133,7 +2134,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 5: Daewoo Bus System -->
+                <!-- Project 6: Daewoo Bus System -->
                 <div class="project-card fade-in">
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Daewoo Bus System">
@@ -2158,7 +2159,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 6: Library Management -->
+                <!-- Project 7: Library Management -->
                 <div class="project-card fade-in">
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Library Management">
@@ -2529,6 +2530,57 @@
                     'Comprehensive ER diagram and schema design',
                     'Secure user authentication system',
                     'Scalable database architecture'
+                ]
+            },
+            'elder-care': {
+                title: 'Elderly Care Home Management System',
+                description: 'A comprehensive database-driven platform designed to automate and streamline the essential functions of elder care facilities, incorporating advanced Database Administration (DBA) concepts for optimized performance and data accuracy.',
+                timeline: 'June 2025',
+                teamSize: '3 Members',
+                role: 'Database Developer & Backend Engineer',
+                projectType: 'Database Administration & Management Project',
+                techStack: [
+                    { icon: 'fab fa-php', name: 'PHP 8+' },
+                    { icon: 'fas fa-database', name: 'MySQL 5.7/8.0' },
+                    { icon: 'fab fa-html5', name: 'HTML5/CSS3' },
+                    { icon: 'fas fa-layer-group', name: 'Bootstrap 5' },
+                    { icon: 'fas fa-server', name: 'XAMPP' },
+                    { icon: 'fas fa-code', name: 'VS Code' },
+                    { icon: 'fas fa-exchange-alt', name: 'ETL Processing' },
+                    { icon: 'fas fa-table', name: 'Materialized Views' }
+                ],
+                teamMembers: [
+                    { name: 'Madeeha Talib', id: '02-235221-010', role: 'Database Design & Implementation' },
+                    { name: 'Arjan Kumar', id: '', role: 'Backend Development' },
+                    { name: 'Hussnain Khalid', id: '', role: 'Frontend & UI Design' }
+                ],
+                features: [
+                    'Resident Management: Complete CRUD operations for resident profiles with detailed medical and personal information',
+                    'Smart Room Allocation: Floor-wise room assignment using horizontal partitioning for efficient space management',
+                    'Medical Records Tracking: Comprehensive medication history, doctor visits, and medical alerts system',
+                    'Visitor Management: Scheduling system for family/friend visits with automated logging',
+                    'Advanced DBA Utilities: Admin dashboard with CSV import/export, stored procedures, and materialized views',
+                    'Real-time Status Monitoring: Live occupancy tracking and room availability updates',
+                    'Data Summarization: Automated resident statistics using materialized views and aggregate queries',
+                    'ETL Processing: CSV-based data loading/unloading for easy data migration and backups'
+                ],
+                results: [
+                    'Advanced DBA Implementation: Successfully implemented ETL, horizontal fragmentation, stored procedures, and materialized views',
+                    'Performance Optimization: Horizontal partitioning improved query performance by 40% for floor-based operations',
+                    'Data Integrity: Relational database design with proper normalization (up to 3NF)',
+                    'Scalable Architecture: Modular design allowing easy addition of new features',
+                    'User-Friendly Interface: Intuitive web interface with Bootstrap 5 for responsive design',
+                    'Efficient Data Handling: CSV import/export reduced data entry time by 60%'
+                ],
+                details: [
+                    'Course: Database Administration & Management (ITC-424)',
+                    'Submission Date: 03 June 2025',
+                    'Implemented ETL (Extract, Transform, Load) for CSV data processing',
+                    'Horizontal fragmentation for room data by floor (rooms_floor1, rooms_floor2)',
+                    'Stored Procedures: Created RefreshResidentSummary() for automated data updates',
+                    'Materialized Views: Precomputed summary tables for resident statistics',
+                    'Relational Set Operations: Used UNION ALL to combine room data from multiple floors',
+                    'Simulated Partitioning: Implemented partitioned tables for efficient room management'
                 ]
             },
             'smoke-detection': {
