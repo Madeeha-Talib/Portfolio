@@ -220,7 +220,7 @@
             color: var(--accent);
         }
 
-        /* Hero Section Update */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -362,7 +362,7 @@
             flex-wrap: wrap;
         }
 
-        /* About Section Update */
+        /* About Section */
         .about {
             background: rgba(17, 34, 64, 0.3);
             position: relative;
@@ -489,16 +489,14 @@
             position: relative;
         }
 
-        /* Or for even better responsive height, use this approach: */
         .about-visual {
             width: 100%;
-            /* Remove fixed height entirely */
             background: linear-gradient(135deg, var(--navy), var(--light-navy));
             border-radius: 10px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            padding: 5px; /* Match the spacing of the pseudo-element */
+            padding: 5px;
         }
 
         .about-visual::before {
@@ -513,7 +511,7 @@
         }
 
         .about-visual-content {
-            position: relative; /* Change from absolute */
+            position: relative;
             background: var(--navy);
             border-radius: 8px;
             display: flex;
@@ -522,7 +520,6 @@
             justify-content: center;
             padding: 25px;
             z-index: 1;
-            /* Height will now be determined by content */
         }
 
         .about-visual-content i {
@@ -562,6 +559,164 @@
             font-size: 0.85rem;
             color: var(--lightest-slate);
         }
+
+        /* Experience Section */
+        .experience {
+            background: rgba(17, 34, 64, 0.2);
+            position: relative;
+        }
+
+        .experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--pink), transparent);
+        }
+
+        .experience-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: rgba(17, 34, 64, 0.6);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .experience-card:hover::before {
+            left: 100%;
+        }
+
+        .experience-card:hover {
+            transform: translateX(8px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .experience-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover .experience-icon {
+            background: var(--accent);
+            color: var(--dark-blue);
+            transform: scale(1.05);
+        }
+
+        .experience-title {
+            flex: 1;
+        }
+
+        .experience-title h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--lightest-slate);
+        }
+
+        .experience-title h4 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .experience-date {
+            font-size: 0.85rem;
+            color: var(--light-slate);
+            margin: 0;
+        }
+
+        .experience-date i {
+            margin-right: 6px;
+            color: var(--accent);
+        }
+
+        .experience-body {
+            padding-left: 80px;
+        }
+
+        .experience-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+        }
+
+        .experience-list li {
+            margin-bottom: 12px;
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .experience-list li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .exp-tag {
+            background: rgba(100, 255, 218, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .exp-tag:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
+        }
+
         /* Skills Section */
         .skills {
             position: relative;
@@ -736,6 +891,7 @@
 
         .project-img img {
             width: 100%;
+            height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
@@ -877,7 +1033,6 @@
             transform: translateY(-3px);
         }
 
-        /* Internship specific styles */
         .internship-duration {
             font-size: 0.85rem;
             color: var(--accent);
@@ -1366,7 +1521,6 @@
             }
         }
 
-        /* Word Wallpaper Styles */
         .floating-word {
             position: absolute;
             color: rgba(100, 255, 218, 0.15);
@@ -1486,6 +1640,30 @@
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .experience-body {
+                padding-left: 0;
+            }
+            
+            .experience-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .experience-title h3 {
+                font-size: 1.2rem;
+            }
+            
+            .experience-list li {
+                font-size: 0.9rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1544,6 +1722,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#certifications">Certifications</a></li>
@@ -1669,6 +1848,96 @@
                                     <i class="fas fa-quote-right"></i>
                                 </p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="experience-container">
+                <!-- Experience 1: Network Engineer Intern -->
+                <div class="experience-card fade-in">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="experience-title">
+                            <h3>Network Engineer Intern</h3>
+                            <h4>Pakistan Aviation Authority (PAA)</h4>
+                            <p class="experience-date"><i class="far fa-calendar-alt"></i> Sep 2024 - Nov 2024</p>
+                        </div>
+                    </div>
+                    <div class="experience-body">
+                        <ul class="experience-list">
+                            <li><i class="fas fa-check-circle"></i> Assisted in network design for 20+ systems using Cisco Packet Tracer, improving diagram accuracy by 25%</li>
+                            <li><i class="fas fa-check-circle"></i> Supported troubleshooting of LAN/WAN issues, reducing minor network outages by 15%</li>
+                            <li><i class="fas fa-check-circle"></i> Maintained documentation and asset records for 50+ devices, enhancing tracking efficiency</li>
+                        </ul>
+                        <div class="experience-tags">
+                            <span class="exp-tag">Cisco Packet Tracer</span>
+                            <span class="exp-tag">LAN/WAN</span>
+                            <span class="exp-tag">Network Troubleshooting</span>
+                            <span class="exp-tag">Asset Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2: Operational Lead -->
+                <div class="experience-card fade-in">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="experience-title">
+                            <h3>Operational Lead</h3>
+                            <h4>Dev Quest PK</h4>
+                            <p class="experience-date"><i class="far fa-calendar-alt"></i> Present</p>
+                        </div>
+                    </div>
+                    <div class="experience-body">
+                        <ul class="experience-list">
+                            <li><i class="fas fa-check-circle"></i> Oversaw IT operations for 10+ teams, ensuring 95% of technical issues resolved within SLAs</li>
+                            <li><i class="fas fa-check-circle"></i> Coordinated with 5+ vendors, improving vendor response time by 20%</li>
+                            <li><i class="fas fa-check-circle"></i> Maintained support logs, reducing repeat tickets by 30% through improved workflows</li>
+                        </ul>
+                        <div class="experience-tags">
+                            <span class="exp-tag">IT Operations</span>
+                            <span class="exp-tag">Vendor Management</span>
+                            <span class="exp-tag">SLA Management</span>
+                            <span class="exp-tag">Support Logs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3: Graphic Designer -->
+                <div class="experience-card fade-in">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="experience-title">
+                            <h3>Graphic Designer</h3>
+                            <h4>Bahria University Computing and Innovation Society (BUcIS)</h4>
+                            <p class="experience-date"><i class="far fa-calendar-alt"></i> Mar 2024</p>
+                        </div>
+                    </div>
+                    <div class="experience-body">
+                        <ul class="experience-list">
+                            <li><i class="fas fa-check-circle"></i> Created 15+ visual assets, contributing to a 40% increase in event attendance</li>
+                            <li><i class="fas fa-check-circle"></i> Enhanced unified brand designs, resulting in 25% higher engagement on digital platforms</li>
+                        </ul>
+                        <div class="experience-tags">
+                            <span class="exp-tag">Graphic Design</span>
+                            <span class="exp-tag">Brand Design</span>
+                            <span class="exp-tag">Visual Assets</span>
+                            <span class="exp-tag">Canva</span>
                         </div>
                     </div>
                 </div>
@@ -2108,10 +2377,9 @@
                     </div>
                 </div>
 
-
                 <!-- Project 5: Smoke Detection -->
                 <div class="project-card fade-in">
-                    <div class="project-img" style="height: unset;">
+                    <div class="project-img">
                         <img src="IOT-Fire-Prevention-System.png" alt="Fire Prevention System">
                     </div>
                     <div class="project-info">
@@ -2347,7 +2615,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Madeeha Talib. All Rights Reserved.</p>
+            <p>&copy; 2024 Madeeha Talib. All Rights Reserved.</p>
         </div>
     </footer>
 
