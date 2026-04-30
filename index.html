@@ -1011,7 +1011,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
             gap: 30px;
         }
 
@@ -1811,6 +1811,14 @@
         }
 
         .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
             animation: fadeInUp 0.8s ease forwards;
         }
 
@@ -2008,290 +2016,417 @@
         }
 
         /* Responsive Design */
+        /* ── Fluid base: clamp font sizes so text never overflows ── */
+        :root {
+            --fs-hero-h1:  clamp(1.4rem, 5vw, 2.8rem);
+            --fs-h2:       clamp(1.4rem, 4vw, 2.2rem);
+            --fs-h3:       clamp(1rem,   3vw, 1.3rem);
+            --fs-body:     clamp(0.85rem, 2.5vw, 1rem);
+            --fs-small:    clamp(0.75rem, 2vw,  0.9rem);
+            --fs-tagline:  clamp(0.8rem,  2.5vw, 1.1rem);
+        }
+        
+        html { font-size: 16px; }
+        
+        body {
+            overflow-x: hidden;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* ── Container always fluid ── */
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* ── Hero h1 / tagline use fluid vars ── */
+        .hero h1          { font-size: var(--fs-hero-h1); }
+        .hero-tagline     { font-size: var(--fs-tagline); }
+        .hero p           { font-size: var(--fs-body); }
+        .section-title h2 { font-size: var(--fs-h2); }
+        
+        /* ── Images never overflow ── */
+        img { max-width: 100%; height: auto; display: block; }
+        
+        /* ── Navigation links don't wrap mid-word ── */
+        .nav-links a { white-space: nowrap; }
+        
+        /* ── Skill chips wrap without overflow ── */
+        .skills-list { flex-wrap: wrap; }
+        
+        /* ── Grids use fluid min() so they never overflow on small screens ── */
+        .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+        }
+        .certifications-grid {
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+        }
+        .skills-container {
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+        }
+        .certs-grid {
+            grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+        }
+        
+        /* ── Experience body full-width by default ── */
+        .experience-body { padding-left: 0; }
+        
+        
+        /* ====================================================
+        BREAKPOINT ≤ 1100px — Large tablets / small laptops
+        ==================================================== */
+        @media (max-width: 1100px) {
+            .portrait-circle { width: 300px; height: 300px; }
+            .chip-1 { right: -100px; }
+            .chip-2 { right:  -70px; }
+            .chip-3 { left:   -55px; }
+            .chip-4 { left:   -45px; }
+            .about-content { gap: 35px; }
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+            }
+        }
+        
+        
+        /* ====================================================
+        BREAKPOINT ≤ 968px — Tablets / landscape phones
+        ==================================================== */
         @media (max-width: 968px) {
+        
+            section { padding: 70px 0; }
+        
+            /* Stacked layouts */
             .about-content,
             .contact-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .case-study-popup {
-                max-width: 95%;
-            }
-            
+            .projects-grid    { grid-template-columns: 1fr; }
+            .skills-container { grid-template-columns: 1fr; }
+        
+            /* Portrait */
+            .portrait-wrap   { width: 200px; height: 200px; }
+            .portrait-ring   { inset: -14px; }
+            .portrait-ring-2 { inset: -26px; }
+            .portrait-circle { width: 270px; height: 270px; }
+        
+            /* Chips */
+            .chip-1 { top: 20px;    right: -110px; }
+            .chip-2 { bottom: 15px; right:  -75px; }
+            .chip-3 { bottom: 15px; left:   -55px; }
+            .chip-4 { top: 20px;   left:   -45px; }
+        
+            /* Popups */
+            .case-study-popup,
+            .certs-sub-popup { max-width: 95%; }
             .popup-team-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-            
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .certs-sub-popup {
-                max-width: 95%;
-            }
-
+        
+            /* Inner grids */
+            .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+            .skills-grid    { grid-template-columns: repeat(2, 1fr); }
+        
+            /* Certs */
             .certs-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
+        
+            /* Loading bar */
+            .loading-bar { width: 80%; max-width: 340px; }
         }
-
+        
+        
+        /* ====================================================
+        BREAKPOINT ≤ 768px — Mobile landscape / large phones
+        ==================================================== */
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
+        
+            section { padding: 60px 0; }
+        
+            /* ── Hamburger nav ── */
+            .hamburger { display: block; }
+        
             .nav-links {
                 position: fixed;
                 top: 70px;
                 right: -100%;
-                width: 70%;
+                width: 78%;
+                max-width: 320px;
                 height: calc(100vh - 70px);
-                background: rgba(10, 25, 47, 0.95);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 40px;
-                transition: right 0.3s ease;
-                backdrop-filter: blur(10px);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-tagline {
-                font-size: 1rem;
-            }
-
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .project-btns {
-                flex-direction: column;
-            }
-
-            .profile-container {
-                width: 180px;
-                height: 180px;
-            }
-
-            .portrait-wrap {
-                width: 180px;
-                height: 180px;
-            }
-
-            .portrait-ring {
-                inset: -12px;
-            }
-
-            .portrait-ring-2 {
-                inset: -24px;
-            }
-
-            .portrait-circle {
-                width: 280px;
-                height: 280px;
-            }
-
-            .chip-1 {
-                top: 20px;
-                right: -100px;
-            }
-
-            .chip-2 {
-                bottom: 15px;
-                right: -60px;
-            }
-
-            .chip-3 {
-                bottom: 15px;
-                left: -50px;
-            }
-
-            .chip-4 {
-                top: 20px;
-                left: -40px;
-            }
-            
-            .case-study-popup-header {
-                padding: 15px 20px;
-            }
-            
-            .case-study-popup-body {
-                padding: 20px;
-            }
-            
-            .popup-team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .popup-project-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .quick-stats {
-                gap: 15px;
-            }
-
-            .stat-item {
-                min-width: 100px;
-                padding: 12px 15px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .experience-header {
+                background: rgba(10, 25, 47, 0.97);
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 15px;
+                justify-content: flex-start;
+                padding: 30px 24px;
+                transition: right 0.3s ease;
+                backdrop-filter: blur(14px);
+                overflow-y: auto;
+                z-index: 999;
             }
-            
-            .experience-body {
-                padding-left: 0;
-            }
-            
-            .experience-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            .experience-title h3 {
-                font-size: 1.2rem;
-            }
-            
-            .experience-list li {
-                font-size: 0.9rem;
-            }
-
-            .certs-sub-popup {
-                max-width: 95%;
-            }
-
+            .nav-links.active  { right: 0; }
+            .nav-links li      { margin: 12px 0; width: 100%; }
+            .nav-links a       { font-size: 1rem; padding: 8px 0; }
+            .nav-links a.btn   { margin-top: 10px; margin-left: 0; width: 100%; justify-content: center; }
+        
+            /* ── Hero ── */
+            .hero { padding-top: 100px; }
+            .hero-intro { flex-wrap: wrap; gap: 10px; justify-content: center; }
+            .hero-btns  { flex-direction: column; align-items: center; width: 100%; }
+            .hero-btns .btn { width: 100%; max-width: 300px; text-align: center; justify-content: center; }
+        
+            /* ── Portrait ── */
+            .portrait-wrap   { width: 180px; height: 180px; }
+            .portrait-ring   { inset: -12px; }
+            .portrait-ring-2 { inset: -22px; }
+            .portrait-circle { width: 240px; height: 240px; }
+        
+            /* ── Chips ── */
+            .chip-1 { top: 18px;    right: -90px;  font-size: 0.72rem; padding: 6px 10px; }
+            .chip-2 { bottom: 12px; right: -60px;  font-size: 0.72rem; padding: 6px 10px; }
+            .chip-3 { bottom: 12px; left:  -45px;  font-size: 0.72rem; padding: 6px 10px; }
+            .chip-4 { top: 18px;   left:  -35px;  font-size: 0.72rem; padding: 6px 10px; }
+            .float-chip span { font-size: 0.72rem; }
+            .float-chip i    { font-size: 0.82rem; }
+        
+            /* ── Quick stats ── */
+            .quick-stats { gap: 12px; }
+            .stat-item   { min-width: 90px; padding: 12px 14px; }
+            .stat-number { font-size: 1.5rem; }
+        
+            /* ── Experience ── */
+            .experience-header   { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+            .experience-icon     { width: 48px; height: 48px; font-size: 1.4rem; flex-shrink: 0; }
+            .experience-title h3 { font-size: 1.1rem; }
+            .experience-list li  { font-size: 0.88rem; }
+            .experience-tags     { flex-wrap: wrap; }
+        
+            /* ── Project buttons ── */
+            .project-btns     { flex-direction: column; }
+            .project-btns .btn { text-align: center; justify-content: center; }
+        
+            /* ── Case study popup ── */
+            .case-study-popup-header { padding: 14px 18px; }
+            .case-study-popup-body   { padding: 18px; }
+            .case-study-popup-header h3 { font-size: 1.1rem; }
+            .popup-project-meta { flex-direction: column; gap: 8px; }
+            .popup-team-grid    { grid-template-columns: repeat(2, 1fr); }
+        
+            /* ── Contact form ── */
+            .contact-form { padding: 20px; }
+        
+            /* ── Expertise (about visual) ── */
+            .expertise-grid { grid-template-columns: repeat(3, 1fr); }
+        
+            /* ── Certs sub popup ── */
+            .certs-sub-popup-header { padding: 14px 18px; }
+            .certs-sub-popup-body   { padding: 20px; }
             .certs-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 14px;
             }
+        
+            /* ── Loading screen ── */
+            .loading-top  { flex-direction: column; gap: 10px; }
+            .loading-name { font-size: 1.6rem; }
+            .loading-logo { width: 90px; height: 90px; }
+            .loading-bar  { width: 85%; max-width: 300px; }
         }
         
-        @media (max-width: 480px) {
-            .profile-container {
-                width: 150px;
-                height: 150px;
+        
+        /* ====================================================
+        BREAKPOINT ≤ 540px — Most phones, portrait
+        ==================================================== */
+        @media (max-width: 540px) {
+        
+            section { padding: 50px 0; }
+            .container { width: 95%; padding: 0 12px; }
+        
+            /* Section titles */
+            .section-title        { margin-bottom: 36px; }
+            .section-title h2     { font-size: 1.5rem; }
+            #skills .section-title h2 { font-size: 1.5rem; }
+        
+            /* Hero */
+            .hero { padding-top: 90px; min-height: auto; }
+        
+            /* Portrait */
+            .portrait-wrap   { width: 155px; height: 155px; }
+            .portrait-ring   { inset: -10px; }
+            .portrait-ring-2 { inset: -19px; }
+            .portrait-circle { width: 210px; height: 210px; }
+        
+            /* Chips repositioned so they don't clip */
+            .chip-1 { top: 12px;    right: -76px; padding: 5px 8px; }
+            .chip-2 { bottom: 8px;  right: -50px; padding: 5px 8px; }
+            .chip-3 { bottom: 8px;  left:  -36px; padding: 5px 8px; }
+            .chip-4 { top: 12px;   left:  -28px; padding: 5px 8px; }
+            .float-chip span { font-size: 0.68rem; }
+            .float-chip i    { font-size: 0.75rem; }
+        
+            .hero-intro .wave-icon { font-size: 1.5rem; }
+        
+            /* Quick stats — 2-col grid */
+            .quick-stats {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                width: 100%;
             }
-
-            .portrait-wrap {
-                width: 150px;
-                height: 150px;
+            .stat-item   { min-width: unset; padding: 10px; }
+            .stat-number { font-size: 1.4rem; }
+            .stat-label  { font-size: 0.75rem; }
+        
+            /* About project highlight */
+            .project-highlight { padding: 50px 14px 14px; }
+            .sc-badge { font-size: 0.78rem; padding: 5px 10px; }
+            .project-tech-tags { gap: 6px; }
+            .project-tech { font-size: 0.7rem; padding: 3px 8px; }
+        
+            /* Skills mini grid 1-col */
+            .skills-grid { grid-template-columns: 1fr; }
+        
+            /* Expertise 2-col */
+            .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        
+            /* Experience card */
+            .experience-card     { padding: 18px 14px; }
+            .experience-header   { gap: 10px; }
+            .experience-icon     { width: 42px; height: 42px; font-size: 1.2rem; }
+            .experience-title h3 { font-size: 1rem; }
+            .experience-title h4 { font-size: 0.9rem; }
+            .experience-date     { font-size: 0.8rem; }
+            .experience-list li  { font-size: 0.83rem; gap: 8px; }
+            .exp-tag             { font-size: 0.7rem; padding: 4px 10px; }
+        
+            /* Skills chips */
+            .skill-category h3 { font-size: 1.1rem; }
+            .skill-item        { font-size: 0.8rem; padding: 5px 10px; }
+        
+            /* Project cards */
+            .project-img { height: 170px; }
+            .project-info h3 { font-size: 1.1rem; }
+            .project-info p  { font-size: 0.85rem; }
+            .project-tag     { font-size: 0.7rem; }
+            .project-btns .btn { font-size: 0.8rem; padding: 9px 14px; }
+        
+            /* Cert cards */
+            .cert-card     { padding: 18px 14px; }
+            .cert-badge    { width: 58px; height: 58px; font-size: 1.5rem; }
+            .cert-image-btn { min-width: 120px; font-size: 0.78rem; }
+        
+            /* Certs sub popup */
+            .certs-grid         { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .cert-sub-image     { height: 120px; }
+            .cert-sub-info h4   { font-size: 0.88rem; }
+        
+            /* Contact */
+            .contact-item  { padding: 14px; }
+            .contact-icon  { width: 42px; height: 42px; font-size: 1.1rem; }
+            .social-link   { width: 40px; height: 40px; }
+            .contact-form input,
+            .contact-form textarea { font-size: 0.88rem; padding: 10px; }
+        
+            /* Popups */
+            .case-study-popup-header h3 { font-size: 1rem; }
+            .case-study-section h4      { font-size: 1.1rem; }
+            .popup-tech-item            { font-size: 0.75rem; }
+            .popup-feature-list li      { font-size: 0.85rem; }
+            .popup-team-grid            { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .popup-team-member h5       { font-size: 0.82rem; }
+        
+            /* Loading */
+            .loading-name { font-size: 1.3rem; }
+            .loading-logo { width: 75px; height: 75px; }
+        
+            /* Scroll to top */
+            .scroll-to-top-btn { width: 42px; height: 42px; right: 16px; bottom: 20px; }
+        
+            /* Footer */
+            footer p { font-size: 0.82rem; }
+        }
+        
+        
+        /* ====================================================
+        BREAKPOINT ≤ 380px — Very small / older phones
+        ==================================================== */
+        @media (max-width: 380px) {
+        
+            .container { width: 96%; padding: 0 10px; }
+        
+            /* Portrait */
+            .portrait-wrap   { width: 130px; height: 130px; }
+            .portrait-ring   { inset: -8px; }
+            .portrait-ring-2 { inset: -16px; }
+            .portrait-circle { width: 185px; height: 185px; }
+        
+            /* Hide chips on tiny screens to avoid overlap */
+            .chip-1, .chip-2, .chip-3, .chip-4 { display: none; }
+        
+            .hero-intro { gap: 8px; }
+        
+            /* Stats */
+            .quick-stats { gap: 8px; }
+            .stat-item   { padding: 8px; }
+            .stat-number { font-size: 1.2rem; }
+            .stat-label  { font-size: 0.7rem; }
+        
+            /* Typography */
+            .section-title h2 { font-size: 1.3rem; }
+        
+            /* Experience */
+            .experience-icon     { width: 38px; height: 38px; font-size: 1rem; }
+            .experience-title h3 { font-size: 0.95rem; }
+        
+            /* Skills chips */
+            .skill-item { font-size: 0.75rem; padding: 4px 8px; }
+        
+            /* Projects */
+            .project-img     { height: 150px; }
+            .project-info h3 { font-size: 1rem; }
+        
+            /* Certs */
+            .certs-grid { grid-template-columns: 1fr; }
+        
+            /* Popup team */
+            .popup-team-grid { grid-template-columns: 1fr; }
+        
+            /* Nav full-width */
+            .nav-links { width: 88%; max-width: unset; }
+        }
+        
+        
+        /* ====================================================
+        LANDSCAPE PHONE — Short viewport, wide
+        ==================================================== */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                min-height: auto;
+                padding-top: 80px;
+                padding-bottom: 40px;
             }
-
-            .portrait-ring {
-                inset: -10px;
-            }
-
-            .portrait-ring-2 {
-                inset: -20px;
-            }
-
-            .portrait-circle {
-                width: 240px;
-                height: 240px;
-            }
-
-            .chip-1 {
-                top: 15px;
-                right: -80px;
-                font-size: 0.7rem;
-                padding: 6px 10px;
-            }
-
-            .chip-2 {
-                bottom: 10px;
-                right: -50px;
-                font-size: 0.7rem;
-                padding: 6px 10px;
-            }
-
-            .chip-3 {
-                bottom: 10px;
-                left: -40px;
-                font-size: 0.7rem;
-                padding: 6px 10px;
-            }
-
-            .chip-4 {
-                top: 15px;
-                left: -30px;
-                font-size: 0.7rem;
-                padding: 6px 10px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-tagline {
-                font-size: 0.9rem;
-            }
-            
-            .hero p {
-                font-size: 0.95rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .cert-image-btn {
-                min-width: 130px;
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-            
-            .case-study-popup-header h3 {
-                font-size: 1.2rem;
-            }
-            
-            .stat-item {
-                min-width: 80px;
-                padding: 10px 12px;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .certs-sub-popup {
-                max-width: 95%;
-            }
-
-            .certs-grid {
-                grid-template-columns: 1fr;
-            }
+            .portrait-circle { width: 180px; height: 180px; }
+            .portrait-wrap   { width: 130px; height: 130px; }
+            .portrait-ring   { inset: -8px; }
+            .portrait-ring-2 { inset: -16px; }
+            .chip-1, .chip-2, .chip-3, .chip-4 { display: none; }
+            .quick-stats { gap: 10px; }
+            .stat-item   { padding: 8px 12px; min-width: 80px; }
+            .hero-btns .btn { padding: 10px 20px; }
+        }
+        
+        
+        /* ====================================================
+        PRINT
+        ==================================================== */
+        @media print {
+            header, .hero-bg, .scroll-to-top-btn,
+            .loading-screen, .hero-btns { display: none !important; }
+            body    { color: #000; background: #fff; }
+            section { padding: 20px 0; }
         }
     </style>
 </head>
@@ -2312,7 +2447,7 @@
     </div>
 
     <!-- Header & Navigation -->
-    <header>
+    <header class="fade-in">
         <div class="container">
             <nav>
                 <div class="logo" onclick="document.querySelector('#home').scrollIntoView({behavior: 'smooth'})">
@@ -2325,7 +2460,7 @@
                     <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
                     <li><a href="#certifications" onclick="openCertsSubPopup(); return false;"><i class="fas fa-certificate"></i> Certifications</a></li>
                     <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li><a href="MADEEHA_TALIB_RESUME.pdf" class="btn btn-resume" style="margin-left: 20px; padding-left: 5px; padding-right: 5px;"><i class="fas fa-download"></i> Download Resume</a></li>
+                    <li><a href="Madeeha-Talib-Resume-IT.pdf" class="btn btn-resume" style="margin-left: 20px; padding-left: 5px; padding-right: 5px;"><i class="fas fa-download"></i> Download Resume</a></li>
                 </ul>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -2335,7 +2470,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero fade-in">
         <div class="hero-bg">
             <canvas id="backgroundCanvas"></canvas>
             <div id="wordWallpaper"></div>
@@ -2390,6 +2525,7 @@
                     <div class="hero-btns">
                         <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-right"></i> View Work</a>
                         <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                        <a href="Madeeha-Talib-Resume-IT.pdf" class="btn btn-resume" style="padding-left: 5px; padding-right: 5px;"><i class="fas fa-download"></i> Download Resume</a>
                     </div>
                 </div>
             </div>
@@ -2397,7 +2533,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about fade-in">
         <div class="container">
             <div class="section-title">
                 <h2><i class="fas fa-user"></i> About My Journey</h2>
@@ -2475,7 +2611,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience fade-in">
         <div class="container">
             <div class="section-title">
                 <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
@@ -2565,7 +2701,7 @@
     </section>
 
     <!-- Skills Section - UPDATED with Modern Chip Style -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills fade-in">
         <div class="container">
             <div class="section-title">
                 <h2><i class="fas fa-tools"></i> Technical Skills & Expertise</h2>
@@ -2700,7 +2836,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects fade-in">
         <div class="container">
             <div class="section-title">
                 <h2><i class="fas fa-project-diagram"></i> Featured Projects</h2>
@@ -2726,8 +2862,8 @@
                         </div>
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="dyslexia-aid"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
-                            <a href="https://github.com/Madeeha-Talib/safe-click-website" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> GitHub
+                            <a href="Dyslexia-Aid-Software.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> View Research
                             </a>
                         </div>
                     </div>
@@ -2753,8 +2889,8 @@
                         </div>
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="road-rangers"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
-                            <a href="https://github.com/Madeeha-Talib/safe-click-website" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> GitHub
+                            <a href="Road-Rangers-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> View Research
                             </a>
                         </div>
                     </div>
@@ -2780,7 +2916,7 @@
                         </div>
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="elderly-care"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
-                            <a href="https://github.com/Madeeha-Talib/safe-click-website" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/Madeeha-Talib/Elderly-Care-Management-System" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
@@ -2808,8 +2944,8 @@
                         </div>
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="iot-fire"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
-                            <a href="https://github.com/Madeeha-Talib/safe-click-website" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> GitHub
+                            <a href="IOT-Fire-Prevention-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> View Research
                             </a>
                         </div>
                     </div>
@@ -2835,8 +2971,8 @@
                         </div>
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="daewoo-bus"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
-                            <a href="https://github.com/Madeeha-Talib/safe-click-website" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> GitHub
+                            <a href="Daewoo-Bus-Services-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> View Research
                             </a>
                         </div>
                     </div>
@@ -2862,8 +2998,8 @@
                         </div>
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="library-management"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
-                            <a href="https://github.com/Madeeha-Talib/safe-click-website" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> GitHub
+                            <a href="Library-Management-System-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> View Research
                             </a>
                         </div>
                     </div>
@@ -2873,7 +3009,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact fade-in">
         <div class="container">
             <div class="section-title">
                 <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
@@ -2897,7 +3033,7 @@
                         </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+92 3325202177 or +92 3161027239</p>
+                            <p>+92 3325202177</p>
                         </div>
                     </div>
                     
@@ -2936,7 +3072,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="fade-in">
         <div class="container">
             <p>&copy; 2024 Madeeha Talib. All Rights Reserved.</p>
         </div>
@@ -3473,18 +3609,10 @@
                 const elementVisible = 150;
                 
                 if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
+                    element.classList.add('visible');
                 }
             });
         };
-
-        // Set initial state for fade elements
-        fadeElements.forEach(element => {
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        });
 
         window.addEventListener('scroll', fadeInOnScroll);
         window.addEventListener('load', fadeInOnScroll);
