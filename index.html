@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>Madeeha Talib | IT Professional Portfolio</title>
     <link rel="icon" type="image/png" href="profile-pic.png">
+    <script src="AjaxForm.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -1294,7 +1295,7 @@
         .contact-form textarea {
             width: 100%;
             padding: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             background: rgba(35, 53, 84, 0.5);
             border: 1px solid rgba(100, 255, 218, 0.1);
             border-radius: 5px;
@@ -1303,11 +1304,55 @@
             font-size: 0.9rem;
         }
 
+        .contact-form input.invalid,
+        .contact-form textarea.invalid {
+            border-color: #ff6b6b;
+        }
+
+        .contact-form input.valid,
+        .contact-form textarea.valid {
+            border-color: #64ffda;
+        }
+
+        .input-feedback {
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            min-height: 1.2em;
+            color: rgba(255, 107, 107, 0.95);
+        }
+
+        .input-feedback.valid {
+            color: #64ffda;
+        }
+
+        .input-feedback.loading {
+            color: #f5d742;
+        }
+
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--accent);
             box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+
+        .form-message {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            display: none;
+        }
+
+        .form-message.success {
+            color: #64ffda;
+        }
+
+        .form-message.error {
+            color: #ff6b6b;
+        }
+
+        .form-message.loading {
+            color: #f5d742;
         }
 
         .contact-form textarea {
@@ -2842,7 +2887,7 @@
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="dyslexia-aid"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
                             <a href="Dyslexia-Aid-Software.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> View Research
+                                <i class="fas fa-file-pdf"></i> View Research Report
                             </a>
                         </div>
                     </div>
@@ -2869,7 +2914,7 @@
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="road-rangers"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
                             <a href="Road-Rangers-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> View Research
+                                <i class="fas fa-file-pdf"></i> View Research Report
                             </a>
                         </div>
                     </div>
@@ -2924,7 +2969,7 @@
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="iot-fire"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
                             <a href="IOT-Fire-Prevention-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> View Research
+                                <i class="fas fa-file-pdf"></i> View Research Report
                             </a>
                         </div>
                     </div>
@@ -2951,7 +2996,7 @@
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="daewoo-bus"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
                             <a href="Daewoo-Bus-Services-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> View Research
+                                <i class="fas fa-file-pdf"></i> View Research Report
                             </a>
                         </div>
                     </div>
@@ -2978,7 +3023,7 @@
                         <div class="project-btns">
                             <button class="btn btn-primary view-case-study" data-project="library-management"><i class="fas fa-lightbulb"></i> Discover Innovation</button>
                             <a href="Library-Management-System-Report.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> View Research
+                                <i class="fas fa-file-pdf"></i> View Research Report
                             </a>
                         </div>
                     </div>
@@ -3037,13 +3082,69 @@
                 </div>
                 
                 <div class="contact-form fade-in">
-                    <form id="contactForm">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
-                        <div id="formMessage" class="form-message"></div>
+                    <form id="contactForm" novalidate autocomplete="off">
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Your Name" 
+                            minlength="2" 
+                            maxlength="100" 
+                            required 
+                            autocomplete="name"
+                        >
+                        <div class="input-feedback" aria-live="polite"></div>
+
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Your Email" 
+                            maxlength="255" 
+                            required
+                        >
+                        <div class="input-feedback" aria-live="polite"></div>
+
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            placeholder="Subject" 
+                            minlength="3" 
+                            maxlength="150" 
+                            required 
+                            autocomplete="off"
+                        >
+                        <div class="input-feedback" aria-live="polite"></div>
+
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            placeholder="Your Message" 
+                            minlength="10" 
+                            maxlength="5000" 
+                            required
+                        ></textarea>
+                        <div class="input-feedback" aria-live="polite"></div>
+
+                        <!-- Spam Protection -->
+                        <div style="display:none;" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input 
+                                type="text" 
+                                id="website" 
+                                name="website" 
+                                tabindex="-1" 
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+
+                        <div id="formMessage" class="form-message" aria-live="polite"></div>
+
                     </form>
                 </div>
             </div>
@@ -3051,7 +3152,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="fade-in">
+    <footer>
         <div class="container">
             <p>&copy; 2024 Madeeha Talib. All Rights Reserved.</p>
         </div>
@@ -3850,74 +3951,8 @@
             }
         });
 
-        // Contact Form Functionality
-        function showFormMessage(message, type = 'success') {
-            formMessage.textContent = message;
-            formMessage.className = `form-message ${type}`;
-            formMessage.style.display = 'block';
-            
-            if (type === 'success') {
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }
-        }
-
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Validate form
-            if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-                showFormMessage('Please fill in all fields.', 'error');
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formData.email)) {
-                showFormMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Show loading state
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-            showFormMessage('Sending message...', 'loading');
-            
-            try {
-                // Simulate API call (replace with actual backend integration)
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Success simulation
-                contactForm.reset();
-                showFormMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
-            } catch (error) {
-                console.error('Error sending email:', error);
-                showFormMessage('Failed to send message. Please try again later or email me directly at madihatalib92@gmail.com', 'error');
-            } finally {
-                // Reset loading state
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-            }
-        }
-        
-        contactForm.addEventListener('submit', handleFormSubmit);
-        
-        // Form input validation
-        const formInputs = contactForm.querySelectorAll('input, textarea');
-        formInputs.forEach(input => {
-            input.addEventListener('input', () => {
-                if (formMessage.style.display === 'block') {
-                    formMessage.style.display = 'none';
-                }
-            });
-        });
+        // Contact form validation and submission are handled in AjaxForm.js.
+        // The page still keeps the elements and markup here, but the submit logic has been moved to the external script.
 
         // Background Animation
         const canvas = document.getElementById('backgroundCanvas');
