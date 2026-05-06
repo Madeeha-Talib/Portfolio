@@ -254,26 +254,38 @@ document.addEventListener("DOMContentLoaded", function () {
         showMessage("Sending message...", "loading");
 
         try {
-            const response = await fetch("AjaxForm.php", {
-                method: "POST",
-                body: new FormData(form)
-            });
+            await emailjs.sendForm(
+                "service_1fq92xk",
+                "template_em8ev1h",
+                form
+            );
 
-            const result = await response.json();
+            showMessage(
+                "Your message has been sent successfully.",
+                "success"
+            );
 
-            if (result.success) {
-                showMessage(result.message || "Your message has been sent successfully.", "success");
-                form.reset();
-                form.querySelectorAll("input, textarea").forEach(clearFieldState);
-            } else {
-                showMessage(result.message || "Unable to send your message. Please try again.", "error");
-            }
+            form.reset();
+
+            form.querySelectorAll("input, textarea")
+                .forEach(clearFieldState);
+
         } catch (error) {
+
             console.error(error);
-            showMessage("Something went wrong. Please try again later.", "error");
+
+            showMessage(
+                "Something went wrong. Please try again later.",
+                "error"
+            );
+
         } finally {
+
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+
+            submitBtn.innerHTML =
+                '<i class="fas fa-paper-plane"></i> Send Message';
+
         }
     });
 
